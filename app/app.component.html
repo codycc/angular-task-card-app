@@ -2,19 +2,22 @@
     <div class="row">
         <div class="col-md-6 offset-md-3">
 
-            <form class="form-inline">
+            <!--when User hits submit , it'll run the  add task function which takes the currenttask value and creates a new task instance and adds to array-->
+            <!--when the form is submitted, run the addTask-->
+            <form class="form-inline" (ngSubmit)="addTask()" #taskForm="ngForm">
                 <div class="form-group">
                     <label for="content-field" class="sr-only"></label>
-                    <input type="text" id="content-field" class="form-control" placeholder="Enter a task...." [(ngModel)]="currentTask.content" name="content">
+                    <!--two way data-binding for the currenttaskproperty's content-->
+                    
+                    <input type="text" id="content-field" class="form-control" required placeholder="Enter a task...." [(ngModel)]="currentTask.content" name="content">
                 </div>
-                <button type="submit" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> Add Task</button>
-              
+                <button type="submit" class="btn btn-primary" [disabled]="taskForm.form.invalid"><i class="fa fa-plus" aria-hidden="true"></i> Add Task</button>
             </form>
-
         </div>
     </div>
 
     <div class="row">
+        <!--for every task in the tasks array, assign that task to the task property on the card-->
     <app-card *ngFor="let task of tasks" [task]="task"></app-card>
     </div>
    

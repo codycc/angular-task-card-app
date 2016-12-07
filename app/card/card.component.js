@@ -13,6 +13,10 @@ var task_1 = require('../model/task');
 var CardComponent = (function () {
     function CardComponent() {
     }
+    // setting up the toggle status for when a user clicks on a card
+    CardComponent.prototype.statusToggle = function () {
+        this.task.completed = !this.task.completed;
+    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', task_1.Task)

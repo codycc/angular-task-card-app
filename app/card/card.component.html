@@ -1,11 +1,12 @@
 <div class="col-sm-3">
-    <div class="card">
+    <!--if task.completed is true then add the class "completed" to the card class -->
+    <!--when user clicks on card, run the statustoggle-->
+    <div class="card" (click)="statusToggle()" [class.completed]="task.completed">
         <div class="card-block">
             <p>{{ task.content}}</p>
         </div>
         <div class="card-footer">
             <i class="fa fa-times" aria-hidden="true"></i>NotComplete 
-            
         </div>
     </div>
 </div>
